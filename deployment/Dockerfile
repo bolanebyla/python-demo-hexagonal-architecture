@@ -13,13 +13,11 @@ COPY pyproject.toml poetry.lock README.md app/
 
 WORKDIR /app
 
-RUN ls . && ls ./src/
-
 # Установка зависимостей python
 RUN pip install --upgrade pip \
     && pip install poetry \
-    && poetry build --format wheel
-RUN pip install dist/*.whl
+    && poetry build --format wheel \
+    && pip install dist/*.whl
     ## && rm -fr /app/pip.conf
 # Смена пользователя
 RUN groupadd -r $USERNAME &&\

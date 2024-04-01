@@ -1,5 +1,4 @@
 version: '3.8'
-name: 'python-demo-hexagonal-architecture'
 services:
   db:
     image: 'postgres:16'
