@@ -1,0 +1,17 @@
+version: '3.8'
+name: 'python-demo-hexagonal-architecture'
+services:
+  db:
+    image: 'postgres:16'
+    restart: always
+    ports:
+      - '8300:5432'
+    environment:
+      - POSTGRES_DB=demo_shop
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=demo
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    logging:
+      options:
+        max-size: 50m
