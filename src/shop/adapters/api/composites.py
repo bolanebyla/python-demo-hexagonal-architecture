@@ -15,6 +15,7 @@ class DB:
 async def get_db_session() -> AsyncSession:
     async with DB.session_factory() as session:
         yield session
+        await session.commit()
 
 
 def create_products_repo(
